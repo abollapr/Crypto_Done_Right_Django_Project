@@ -10,27 +10,27 @@
 
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="../../css/animate.css">
-    <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="../../css/icomoon.css">
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <!-- Superfish -->
-    <link rel="stylesheet" href="../../css/superfish.css">
 
-    <!--<link rel="stylesheet" href="../../css/style.css">-->
+    {% load static %}
 
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/icomoon.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/superfish.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/input.css' %}">
+    <script src="{% static "Landing_page/js/modernizr-2.6.2.min.js" %}"></script>
 
-    <!-- Modernizr JS -->
-    <script src="../../js/modernizr-2.6.2.min.js"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" href="../../css/style-mockup1.css" type="text/css">
+    <script src="{% static "Landing_page/js/util-functions.js" %}"></script>
+    <script src="{% static "Landing_page/js/clear-default-text.js" %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Landing_page/css/style-mockup1.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
   <body background="..\..\images\test8.jpg">
@@ -153,18 +153,12 @@
     </div>
 
     <div class="alert alert-success">
-      This is among the <strong>Latest and Recommended </strong> Version of TLS.
+      {{ banner }}
     </div>
-	<a href="tls-1-3.html"><div class="alert alert-success">
-      TLSv1.3 is out now. Here are the list of changes.
-    </div></a>
-	<a href="tls-1-2-itQuickstart.html#ROBOT"><div class="alert alert-danger">
-      <strong>TLSv1.2 is secure only when it is configured properly!</strong>
-    </div></a>
 
     <div class="container-fluid">
       <div class="row">
-        <div id="topic" class="col-md-4 col-sm-4 col-xs-4">
+        <div id="topic" class="col-md-3 col-md-offset-3">
           <!--<div class="title">
             <h2><span>TLS 1.2</span></h2>
           </div>-->
@@ -172,52 +166,37 @@
             <p><span>Last Updated Sat, 3 Feb 2018 2:02:01 -0400</span></p>
           </div>
           <div class="description">
-
-		  <p>
-		  TLSv1.2 is a revision to the TLSv1.1 and was released in August of 2008.
-		  Just like previous revisions to TLS, this revision aims at improving the security of the protocol by improving the encryption and hashing standards.
-		  One of the primary goals of the TLS 1.2 revision was to remove the protocol’s dependency on the MD5 and SHA-1 digest algorithms.
-		  </p>
-		  <!--
-            <p>
-             TLS stands for Transport Layer Security.  TLS is a cryptographic session protocol.
-	     TLS 1.0 is essentially a renamed Secure Sockets Layer (SSL) 3.0. SSL was originally created by Netscape.
-	     SSL and TLS are used interchangeably, but SSLv3 and below have been deprecated.
-             </p>
-			 -->
+		          <p>
+	               {{ introduction }}
+		          </p>
           </div>
         </div>
 
 
-        <div class="col-md-4 col-sm-4 col-xs-4 infoBlocks">
-		<br /><br /><br />
-		<a href="tls-1-2-devQuickstart.html" class="btn btn-success "> <img class="logos" src="../../images/NewDevLogo.png" />
+        <div class="inline-div">
+        <div class="col-md-3 infoBlocks">
+		    <a href="tls-1-2-devQuickstart.html" class="btn btn-success "> <img class="logos" src="{% static "Landing_page/images/NewDevLogo.png" %}" />
             DEV QUICKSTART</a>
-			<p>
+			      <p>
               Are you a developer? Get started with crucial implementation details above.
             </p>
-            <div class="blockNotes">
-            </div>
-          </div>
+        </div>
+      </div>
 
-
-
-        <div class="col-md-4 col-sm-4 col-xs-4 infoBlocks">
-		<br /><br /><br />
-		<a href="tls-1-2-itQuickstart.html" class="btn btn-success "> <img class="logos" src="../../images/pc-administrator.png" />
+        <div class="col-md-3 infoBlocks">
+		        <a href="tls-1-2-itQuickstart.html" class="btn btn-success "> <img class="logos" src="{% static "Landing_page/images/pc-administrator.png" %}" />
             IT QUICKSTART</a>
-			<p>
+			      <p>
               Are you an IT administrator? Get started with best practice setup details above.
             </p>
             <div class="blockNotes">
             </div>
-          </div>
+        </div>
 
-		<div class="col-md-8 col-sm-8 col-xs-8 infoBlocks">
-		<br />		<br />		<br />		<br />
-		<a href="tls-1-2-managerQuickstart.html" class="btn btn-success"> <img class="logos" src="../../images/manager.png" />
-            MANAGER QUICKSTART</a>
-			<p>
+		     <div class="col-md-3 col-md-offset-7 infoBlocks">
+		         <a href="tls-1-2-managerQuickstart.html" class="btn btn-success"> <img class="logos" src="{% static "Landing_page/images/manager.png" %}" />
+              MANAGER QUICKSTART</a>
+			      <p>
               Are you a Manager? Get started with best practice setup details above.
             </p>
             <div class="blockNotes">
@@ -226,7 +205,6 @@
 
         </div>
       </div>
-
 
 
       <div class="row" style="margin-top:5vw;border-top:1px solid #4f4f4f;">

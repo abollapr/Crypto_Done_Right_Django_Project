@@ -26,7 +26,7 @@ def profile(request):
 def landing_page(request):
     if request.method == 'POST':
         title = request.POST
-        new_landing_page = Landing_page_template(heading= title['heading'], introduction="This is the beginning!")
+        new_landing_page = Landing_page_template(heading= title['heading'], introduction=title['introduction'], banner=title['banner'])
         new_landing_page.save()
     else:
         return render(request, 'landing_page_form.html')
@@ -35,4 +35,6 @@ def preview_landing_page(request):
     QuerySet_Dict = {}
     for e in Landing_page_template.objects.all():
         QuerySet_Dict['heading'] = e.heading
+        QuerySet_Dict['banner'] = e.banner
+        QuerySet_Dict['introduction'] = e.introduction
     return render(request, 'landing_page.html', QuerySet_Dict)
